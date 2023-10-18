@@ -1,4 +1,5 @@
 import { Button, Tooltip } from "antd";
+import { useNavigate } from "react-router-dom";
 
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
@@ -8,6 +9,11 @@ import Styled from "./styles";
 import type { ThumbnailNote } from "./types";
 
 const ThumbnailNote = ({ notes }: ThumbnailNote) => {
+  const navigate = useNavigate();
+  const onEditClick = () => {
+    navigate("/editNote/" + notes.id);
+  };
+
   return (
     <>
       <Styled.Note $color={notes.color}>
@@ -20,8 +26,10 @@ const ThumbnailNote = ({ notes }: ThumbnailNote) => {
           <Button
             type="text"
             icon={<FontAwesomeIcon icon={faPenToSquare} color="#8bcafd" />}
+            onClick={onEditClick}
           ></Button>
         </Tooltip>
+
         <Tooltip title="Delete note" color="red">
           <Button
             danger

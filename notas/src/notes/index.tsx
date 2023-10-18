@@ -1,3 +1,4 @@
+import Menu from "../menu";
 import RowNote from "../rowNote";
 import Styled from "./styles";
 import { notesProps } from "./types";
@@ -27,8 +28,10 @@ const Notes = ({ notes }: notesProps) => {
     },
     []
   );
+
   return (
     <Styled.NotesContainer>
+      <Menu></Menu>
       {matrix.map((notes) => (
         <RowNote columns={notes}></RowNote>
       ))}

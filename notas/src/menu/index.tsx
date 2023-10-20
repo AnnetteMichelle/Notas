@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 
-import { faHouse, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faNoteSticky, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Styled from "./styles";
@@ -11,10 +11,10 @@ const Menu = () => {
     <>
       <Styled.Links>
         <Button
-          icon={<FontAwesomeIcon icon={faHouse} color="#0d6aa0" />}
+          icon={<FontAwesomeIcon icon={faNoteSticky} color="#1677ff" />}
           type="link"
         >
-          <Link to="/">Home</Link>
+          <Link to="/">Notes</Link>
         </Button>
 
         <Styled.CreateNote>

@@ -7,8 +7,9 @@ const Styled = {
     padding-bottom: 39px;
     padding: 22px;
   `,
+
   CreateNote: styled.div`
-    margin-top: -31px;
+    margin-top: -32px;
     margin-left: 79px;
   `,
 };

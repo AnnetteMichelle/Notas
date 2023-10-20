@@ -17,8 +17,11 @@ const ThumbnailNote = ({ notes }: ThumbnailNote) => {
   return (
     <>
       <Styled.Note $color={notes.color}>
-        <Styled.Title>{notes.title}</Styled.Title>
-        <Styled.Description>{notes.text}</Styled.Description>
+        <Styled.Color $color={notes.color}>
+          <Styled.Title>{notes.title}</Styled.Title>
+
+          <Styled.Description>{notes.text}</Styled.Description>
+        </Styled.Color>
         <Styled.Date>{notes.dateToCreate}</Styled.Date>
       </Styled.Note>
       <Styled.Buttons>

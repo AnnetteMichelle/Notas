@@ -7,7 +7,7 @@ const Notes = ({ notes }: notesProps) => {
   const matrix = notes.reduce(
     (
       accumulator: {
-        id: number;
+        id: string;
         title: string;
         text: string;
         color: string;

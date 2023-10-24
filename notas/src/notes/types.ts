@@ -2,7 +2,7 @@ export type notesProps = {
   notes: noteData[];
 };
 export type noteData = {
-  id: number;
+  id: string;
   title: string;
   text: string;
   color: string;

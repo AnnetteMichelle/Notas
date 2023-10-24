@@ -1,38 +1,53 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 
+import { useLocalStorageState } from "ahooks";
 import { Button, ColorPicker, Form, Input, Tooltip } from "antd";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Menu from "../menu";
+import { noteData } from "../notes/types";
 import Styled from "./styles";
 
 const CreateNote = () => {
   const [text, setText] = useState("");
   const [textArea, setTextArea] = useState("");
   const [color, setColor] = useState<string>("#FFF");
+
   const { TextArea } = Input;
 
-  const { id } = useParams();
-  console.log(id);
+  const [notes, setNote] = useLocalStorageState<noteData[]>(
+    "use-local-storage-state-demo1"
+  );
 
+  console.log(notes);
+
+  //const { createNoteId } = useParams();
+  // console.log(createNoteId);
+
+  const navigate = useNavigate();
+  const id = useId();
   const OnSaveNote = () => {
-    console.log(text);
-    console.log(textArea);
-    console.log(color);
+    const note: noteData = {
+      title: text,
+      text: textArea,
+      color,
+      id,
+      dateToCreate: new Date().toISOString(),
+    };
     setText("");
     setTextArea("");
     setColor("");
+    setNote([...(notes || []), note]);
+    navigate("/");
   };
-
-  /*const onChangeColor = () => {
-    setValue(color);
-  };*/
 
   return (
     <>
       <Menu />
+
       <Styled.CreateNote $color={color}>
         <Styled.TitleNote>Create a new note</Styled.TitleNote>
+
         <Form.Item>
           {" "}
           <Styled.Titles>Title</Styled.Titles>
@@ -60,7 +75,6 @@ const CreateNote = () => {
           >
             <Styled.ColorPicker>
               <ColorPicker
-                //onChange={onChangeColor}
                 value={color}
                 onChangeComplete={(color) => {
                   setColor(color?.toHexString());
@@ -73,10 +87,8 @@ const CreateNote = () => {
             <Styled.Date>
               {new Date().toLocaleDateString("en-US", {
                 year: "numeric",
-                month: "long",
+                month: "short",
                 day: "numeric",
-                hour: "numeric",
-                minute: "numeric",
               })}
             </Styled.Date>
           </Styled.Titles>

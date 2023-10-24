@@ -1,12 +1,15 @@
-import { Button, Tooltip } from "antd";
-import { useNavigate } from "react-router-dom";
+import {
+  Button,
+  Tooltip,
+} from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Styled from "./styles";
-import type { ThumbnailNote } from "./types";
+import Styled from './styles';
+import type { ThumbnailNote } from './types';
 
 const ThumbnailNote = ({ notes }: ThumbnailNote) => {
   const navigate = useNavigate();

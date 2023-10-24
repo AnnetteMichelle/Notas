@@ -17,7 +17,7 @@ const Styled = {
     }}
   `,
   Color: styled.div<{ $color: string }>`
-    background-color: #ffffff;
+    //background-color: #ffffff;
     border-radius: 15px;
     margin-top: 8px;
     height: 180px;

@@ -12,18 +12,11 @@ const CreateNote = () => {
   const [text, setText] = useState("");
   const [textArea, setTextArea] = useState("");
   const [color, setColor] = useState<string>("#FFF");
-
   const { TextArea } = Input;
 
   const [notes, setNote] = useLocalStorageState<noteData[]>(
     "use-local-storage-state-demo1"
   );
-
-  console.log(notes);
-
-  //const { createNoteId } = useParams();
-  // console.log(createNoteId);
-
   const navigate = useNavigate();
   const id = useId();
   const OnSaveNote = () => {
@@ -32,7 +25,7 @@ const CreateNote = () => {
       text: textArea,
       color,
       id,
-      dateToCreate: new Date().toISOString(),
+      dateToCreate: new Date().toLocaleDateString(),
     };
     setText("");
     setTextArea("");

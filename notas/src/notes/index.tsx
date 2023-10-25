@@ -1,10 +1,20 @@
+import { useLocalStorageState } from "ahooks";
+import { message } from "antd";
+
 import Menu from "../menu";
+import { noteData } from "../notes/types";
 import RowNote from "../rowNote";
 import Styled from "./styles";
-import { notesProps } from "./types";
 
-const Notes = ({ notes }: notesProps) => {
-  const matrix = notes.reduce(
+const Notes = () => {
+  const [notes, setNotes] = useLocalStorageState<noteData[]>(
+    "use-local-storage-state-demo1"
+  );
+  const onDeleteNote = (id: string) => {
+    setNotes(notes?.filter((a) => a.id !== id));
+    return message.success("Note removed");
+  };
+  const matrix = notes?.reduce(
     (
       accumulator: {
         id: string;
@@ -32,8 +42,8 @@ const Notes = ({ notes }: notesProps) => {
   return (
     <Styled.NotesContainer>
       <Menu></Menu>
-      {matrix.map((notes) => (
-        <RowNote columns={notes}></RowNote>
+      {matrix?.map((notes) => (
+        <RowNote columns={notes} onDelete={onDeleteNote}></RowNote>
       ))}
     </Styled.NotesContainer>
   );

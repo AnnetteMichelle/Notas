@@ -1,4 +1,4 @@
-//import { useEffect } from "react";
+import { useEffect } from "react";
 
 import { useLocalStorageState } from "ahooks";
 import { Route, Routes } from "react-router-dom";
@@ -9,7 +9,7 @@ import Notes from "./notes";
 import { noteData } from "./notes/types";
 
 function App() {
-  const [notes /*, setNotes*/] = useLocalStorageState<noteData[]>(
+  const [notes] = useLocalStorageState<noteData[]>(
     "use-local-storage-state-demo1",
     {
       defaultValue: [
@@ -24,14 +24,14 @@ function App() {
     }
   );
 
-  /*useEffect(() => {
-    setNotes(notes);
-  }, []);*/
+  useEffect(() => {
+    notes;
+  }, []);
 
   return (
     <main>
       <Routes>
-        <Route path="/" element={<Notes notes={notes || []} />} />
+        <Route path="/" element={<Notes />} />
         <Route path="/editNote/:noteId" element={<EditNote />} />
         <Route path="/createNote" element={<CreateNote />} />
       </Routes>

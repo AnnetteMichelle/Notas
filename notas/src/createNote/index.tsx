@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 
 import { useLocalStorageState } from "ahooks";
-import { Button, ColorPicker, Form, Input, Tooltip } from "antd";
+import { Button, ColorPicker, Form, Input, message, Tooltip } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import Menu from "../menu";
@@ -32,6 +32,7 @@ const CreateNote = () => {
     setColor("");
     setNote([...(notes || []), note]);
     navigate("/");
+    message.success("Created note ");
   };
 
   return (
@@ -78,10 +79,12 @@ const CreateNote = () => {
           <Styled.Titles>
             Date
             <Styled.Date>
-              {new Date().toLocaleDateString("en-US", {
+              {new Date().toLocaleDateString("en-ES", {
                 year: "numeric",
                 month: "short",
                 day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
               })}
             </Styled.Date>
           </Styled.Titles>

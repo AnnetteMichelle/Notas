@@ -17,7 +17,6 @@ const Styled = {
     }}
   `,
   Color: styled.div<{ $color: string }>`
-    //background-color: #ffffff;
     border-radius: 15px;
     margin-top: 8px;
     height: 180px;
@@ -30,7 +29,6 @@ const Styled = {
   Title: styled.div`
     text-align: center;
     font-weight: bold;
-    //font-family: calibri;
     padding-top: 15px;
     font-size: 17px;
   `,
@@ -48,12 +46,12 @@ const Styled = {
     font-family: "calibri";
     padding-left: 15px;
     padding-top: 4px;
-    //margin-top: 10px;
   `,
 
   Date: styled.div`
     padding: 10px;
-    //margin-top: 19px;
+    font-weight: bolder;
+    font-size: 10px;
   `,
 };
 export default Styled;

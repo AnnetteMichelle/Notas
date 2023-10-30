@@ -7,7 +7,7 @@ const Styled = {
     margin-top: 115px;
     width: 22%;
     border-radius: 20px;
-    height: 460px;
+    height: auto;
     margin-top: 34px;
 
     ${(props) => {
@@ -50,7 +50,6 @@ const Styled = {
     margin-top: 19px;
     padding-bottom: 4px;
     font-weight: 600;
-    //color: gray;
   `,
 
   ColorPicker: styled.div`

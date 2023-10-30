@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
 
 import { useLocalStorageState } from "ahooks";
-import { Button, ColorPicker, Form, Input, Tooltip } from "antd";
+import { Button, ColorPicker, Form, Input, message, Tooltip } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import Menu from "../menu";
@@ -12,18 +12,11 @@ const CreateNote = () => {
   const [text, setText] = useState("");
   const [textArea, setTextArea] = useState("");
   const [color, setColor] = useState<string>("#FFF");
-
   const { TextArea } = Input;
 
   const [notes, setNote] = useLocalStorageState<noteData[]>(
     "use-local-storage-state-demo1"
   );
-
-  console.log(notes);
-
-  //const { createNoteId } = useParams();
-  // console.log(createNoteId);
-
   const navigate = useNavigate();
   const id = useId();
   const OnSaveNote = () => {
@@ -32,13 +25,14 @@ const CreateNote = () => {
       text: textArea,
       color,
       id,
-      dateToCreate: new Date().toISOString(),
+      dateToCreate: new Date().toLocaleDateString(),
     };
     setText("");
     setTextArea("");
     setColor("");
     setNote([...(notes || []), note]);
     navigate("/");
+    message.success("Created note ");
   };
 
   return (
@@ -85,10 +79,12 @@ const CreateNote = () => {
           <Styled.Titles>
             Date
             <Styled.Date>
-              {new Date().toLocaleDateString("en-US", {
+              {new Date().toLocaleDateString("en-ES", {
                 year: "numeric",
                 month: "short",
                 day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
               })}
             </Styled.Date>
           </Styled.Titles>

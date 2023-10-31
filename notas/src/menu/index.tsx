@@ -1,6 +1,6 @@
 import { useLocalStorageState } from "ahooks";
 import type { MenuProps } from "antd";
-import { Button, Checkbox, Dropdown, Space } from "antd";
+import { Button, Checkbox, Dropdown, Radio, Select, Space } from "antd";
 import { Link } from "react-router-dom";
 
 import {
@@ -13,11 +13,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { noteData } from "../notes/types";
 import Styled from "./styles";
+import _, { values } from "lodash";
+import { useState } from "react";
 
 const Menu = () => {
   const [notes, setNotes] = useLocalStorageState<noteData[]>(
     "use-local-storage-state-demo1"
   );
+  const [sort, setSort] = useState<string | undefined>(undefined)
+
+ 
 
   const items: MenuProps["items"] = [
     {
@@ -52,26 +57,32 @@ const Menu = () => {
             <Link to="../createNote">Create Note</Link>
           </Button>
 
-          <Dropdown menu={{ items }} placement="bottomRight">
-            <Button
-              icon={<FontAwesomeIcon icon={faCaretDown} color="#959597" />}
-            >
-              Sort by
-            </Button>
-          </Dropdown>
-          <Styled.checkbox>
-            <Checkbox>
+<Select 
+  placeholder="Sort by"
+  onChange={(value) => setSort(value)}
+  options={[
+    { value: "Title"},
+    { value: "Description"},
+    { value: "Date"},
+  ]}
+  
+/>
+          
+          <Styled.Radios>
+            <Radio>
               A <FontAwesomeIcon icon={faArrowRight} color="#d1d1d1" />{" "}
               <Space>Z</Space>
-            </Checkbox>
-          </Styled.checkbox>
+            </Radio>
 
-          <Styled.ReverseOrder>
-            <Checkbox>
+            <Radio>
               Z <FontAwesomeIcon icon={faArrowRight} color="#d1d1d1" />{" "}
               <Space>A</Space>
-            </Checkbox>
-          </Styled.ReverseOrder>
+            </Radio>
+          </Styled.Radios>
+
+          
+           
+          
         </Styled.CreateNote>
       </Styled.Links>
     </>

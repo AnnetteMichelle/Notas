@@ -17,28 +17,15 @@ const Styled = {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
     }
   `,
-  checkbox: styled.div`
-    margin-top: -43px;
-    margin-left: 236px;
+  Radios: styled.div`
+  margin-left: 337px;
+  margin-top: -22px;
+}
 
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox
-      .ant-checkbox-inner {
-      border-radius: 10px;
-    }
-
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox + span {
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-    }
   `,
 
   ReverseOrder: styled.div`
     margin-left: 236px;
-
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox
-      .ant-checkbox-inner {
-      border-radius: 10px;
-    }
 
     :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox + span {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",

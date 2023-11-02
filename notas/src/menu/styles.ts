@@ -17,32 +17,29 @@ const Styled = {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
     }
   `,
-  checkbox: styled.div`
-    margin-top: -43px;
-    margin-left: 236px;
+  Radios: styled.div`
+    margin-top: -28px;
+    margin-left: 79px;
 
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox
-      .ant-checkbox-inner {
-      border-radius: 10px;
-    }
-
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox + span {
+    :where(.css-dev-only-do-not-override-amq5gd).ant-radio-wrapper
+      span.ant-radio
+      + * {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     }
   `,
 
-  ReverseOrder: styled.div`
-    margin-left: 236px;
+  Select: styled.div`
+    margin-left: 1550px;
+    margin-top: -32px;
 
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox
-      .ant-checkbox-inner {
-      border-radius: 10px;
-    }
-
-    :where(.css-dev-only-do-not-override-xu9wm8).ant-checkbox + span {
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+    :where(.css-dev-only-do-not-override-amq5gd).ant-select:not(
+        .ant-select-customize-input
+      )
+      .ant-select-selector {
+      color: #a3a3a3;
+      border-radius: 9px;
+      border-color: none;
     }
   `,
 };

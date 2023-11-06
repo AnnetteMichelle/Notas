@@ -29,62 +29,55 @@ const Menu = ({ onOrderAsc }: MenuProps) => {
 
   return (
     <>
-      <Styled.Links>
-        <Button
-          icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
-          type="link"
-        >
-          <Link to="/">Notes</Link>
-        </Button>
-
-        <Styled.CreateNote>
+      <Styled.CreateNote>
+        <Styled.Links>
           <Button
-            icon={<FontAwesomeIcon icon={faPlus} color="#0455c5" />}
+            icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
             type="link"
           >
-            <Link to="../createNote">Create Note</Link>
+            <Link to="/">Notes</Link>
           </Button>
-
-          <Styled.Select>
-            <Space>
-              <Select
-                placeholder="Sort by"
-                value={sort}
-                onChange={(selectedSortBy) => setSort(selectedSortBy)}
-                options={[
-                  { value: "tile", label: "Title" },
-                  { value: "text", label: "Text" },
-                  { value: "dateToCreate", label: "Date" },
-                ]}
+        </Styled.Links>
+        <Button
+          icon={<FontAwesomeIcon icon={faPlus} color="#0455c5" />}
+          type="link"
+        >
+          <Link to="../createNote">Create Note</Link>
+        </Button>
+        <Select
+          placeholder="Sort by"
+          value={sort}
+          onChange={(selectedSortBy) => setSort(selectedSortBy)}
+          options={[
+            { value: "tile", label: "Title" },
+            { value: "text", label: "Text" },
+            { value: "dateToCreate", label: "Date" },
+          ]}
+        />
+        <Styled.Radios>
+          <Radio.Group onChange={onSaveRadioActive} value={radioActive}>
+            <Radio value={"desc"}>
+              A
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                color="#b6b6b6"
+                size={"2xs"}
               />
-            </Space>
+              <Space>Z</Space>
+            </Radio>
 
-            <Styled.Radios>
-              <Radio.Group onChange={onSaveRadioActive} value={radioActive}>
-                <Radio value={"desc"}>
-                  A
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    color="#b6b6b6"
-                    size={"2xs"}
-                  />
-                  <Space>Z</Space>
-                </Radio>
-
-                <Radio value={"asc"}>
-                  Z
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    color="#b6b6b6"
-                    size={"2xs"}
-                  />
-                  <Space>A</Space>
-                </Radio>
-              </Radio.Group>
-            </Styled.Radios>
-          </Styled.Select>
-        </Styled.CreateNote>
-      </Styled.Links>
+            <Radio value={"asc"}>
+              Z
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                color="#b6b6b6"
+                size={"2xs"}
+              />
+              <Space>A</Space>
+            </Radio>
+          </Radio.Group>
+        </Styled.Radios>
+      </Styled.CreateNote>
     </>
   );
 };

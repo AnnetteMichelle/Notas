@@ -5,11 +5,10 @@ const Styled = {
     border: 1px solid none;
     border-radius: 13px;
     width: 239px;
-    height: 227px;
+    height: auto;
     margin-top: 13px;
     margin-left: 13px;
     font-size: 14px;
-    box-shadow: 2px;
     ${(props) => {
       if (props.$color) {
         return `background-color:${props.$color};`;
@@ -18,8 +17,6 @@ const Styled = {
   `,
   Color: styled.div<{ $color: string }>`
     border-radius: 15px;
-    margin-top: 8px;
-    height: 180px;
     ${(props) => {
       if (props.$color) {
         return `border:6px solid${props.$color};`;

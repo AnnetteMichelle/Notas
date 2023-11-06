@@ -1,17 +1,16 @@
 import { styled } from "styled-components";
 
 const Styled = {
-  CreateContainer: styled.div`
+  EditContainer: styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
   `,
 
-  CreateNote: styled.div<{ $color: string }>`
+  EditNote: styled.div<{ $color: string }>`
     margin-top: 50px;
     min-width: 22%;
     height: auto;
-    border: 1px solid #e4e4e4;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -21,7 +20,7 @@ const Styled = {
       }
     }}
   `,
-  TitleNote: styled.div`
+  TitleEdit: styled.div`
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
@@ -30,8 +29,7 @@ const Styled = {
     margin-left: 8px;
     margin-right: 8px;
     .ant-input {
-      width: auto;
-      border-color: #d3d3d3;
+      border-color: #bfbebebd;
 
       ${(props) => {
         if (props.$color) {
@@ -42,10 +40,10 @@ const Styled = {
   `,
   Titles: styled.div`
     margin-left: 8px;
-    font-weight: 600;
-    color: #484848;
-    margin-top: 4px;
     margin-bottom: 4px;
+    font-weight: 600;
+    color: #262626;
+    margin-top: 4px;
   `,
 
   button: styled.div`
@@ -55,7 +53,7 @@ const Styled = {
 
   Date: styled.div`
     font-weight: 600;
-    color: #c3c3c3;
+    color: #6f6f6f;
   `,
 
   Buttons: styled.div`

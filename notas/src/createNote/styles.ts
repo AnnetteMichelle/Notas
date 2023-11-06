@@ -39,6 +39,11 @@ const Styled = {
         }
       }}
     }
+
+    .ant-input-suffix {
+      margin-inline-start: 71px;
+      color: #ececec;
+    }
   `,
   Titles: styled.div`
     margin-left: 8px;
@@ -59,8 +64,13 @@ const Styled = {
   `,
 
   Buttons: styled.div`
-    margin-top: 36px;
-    margin-left: 13px;
+    //margin-top: 36px;
+    //margin-left: 13px;
+    padding-bottom: 39px;
+    padding: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-end;
   `,
 
   ColorPicker: styled.div`

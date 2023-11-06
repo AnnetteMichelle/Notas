@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useLocalStorageState } from "ahooks";
 import { Button, ColorPicker, Form, Input, message, Tooltip } from "antd";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { faNoteSticky, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,7 @@ const EditNote = () => {
   );
 
   const navigate = useNavigate();
-  const OnEditNote = (noteId: string) => {
+  const onEditNote = (noteId: string) => {
     setNote(
       notes?.map((note) => {
         if (note.id == noteId) {
@@ -41,6 +41,14 @@ const EditNote = () => {
     message.success("Edited note ");
   };
 
+  const onNote = () => {
+    navigate("/");
+  };
+
+  const onCancelButton = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     if (notes) {
       const UpdateNote = notes.find((note) => note.id === noteId);
@@ -56,15 +64,17 @@ const EditNote = () => {
         <Button
           icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
           type="link"
+          onClick={onNote}
         >
-          <Link to="/">Notes</Link>
+          Notes
         </Button>
         <Button
           icon={<FontAwesomeIcon icon={faXmark} color="#ff4d4f" />}
           type="link"
           danger
+          onClick={onCancelButton}
         >
-          <Link to="/">Cancel</Link>
+          Cancel
         </Button>
       </Styled.Buttons>
       <Styled.EditContainer>
@@ -74,6 +84,8 @@ const EditNote = () => {
             <Styled.Titles>Title</Styled.Titles>
             <Styled.Input $color={color}>
               <Input
+                showCount
+                maxLength={35}
                 style={{ width: "310px" }}
                 placeholder="Write a title for your note"
                 value={text}
@@ -120,7 +132,7 @@ const EditNote = () => {
             </Styled.Titles>
             <Styled.button>
               {" "}
-              <Button type="primary" onClick={() => OnEditNote(noteId || "")}>
+              <Button type="primary" onClick={() => onEditNote(noteId || "")}>
                 Save
               </Button>
             </Styled.button>

@@ -25,7 +25,7 @@ const ThumbnailNote = ({ note, onDelete }: ThumbnailNote) => {
         <Styled.Date>{note.dateToCreate}</Styled.Date>
       </Styled.Note>
       <Styled.Buttons>
-        <Tooltip title="Edit note" color="#108ee9">
+        <Tooltip placement="left" title="Edit note" color="#108ee9">
           <Button
             type="text"
             icon={<FontAwesomeIcon icon={faPenToSquare} color="#8bcafd" />}
@@ -41,11 +41,13 @@ const ThumbnailNote = ({ note, onDelete }: ThumbnailNote) => {
           okText="Delete Note"
           cancelText="Cancel"
         >
-          <Button
-            danger
-            type="text"
-            icon={<FontAwesomeIcon icon={faTrash} color="#c7c7c7" />}
-          ></Button>
+          <Tooltip placement="right" title="Delete note" color="#ff6a6a">
+            <Button
+              danger
+              type="text"
+              icon={<FontAwesomeIcon icon={faTrash} color="#c7c7c7" />}
+            ></Button>
+          </Tooltip>
         </Popconfirm>
       </Styled.Buttons>
     </>

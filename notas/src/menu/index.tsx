@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import type { RadioChangeEvent } from "antd";
 import { Button, Radio, Select, Space } from "antd";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   faArrowRight,
@@ -27,29 +27,39 @@ const Menu = ({ onOrderAsc }: MenuProps) => {
       onOrderAsc({ selectedOrder: radioActive, selectedSortBy: sort });
   }, [sort, radioActive]);
 
+  const navigate = useNavigate();
+  const onNote = () => {
+    navigate("/");
+  };
+
+  const onCreateNote = () => {
+    navigate("../createNote");
+  };
+
   return (
     <>
       <Styled.CreateNote>
-        <Styled.Links>
-          <Button
-            icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
-            type="link"
-          >
-            <Link to="/">Notes</Link>
-          </Button>
-        </Styled.Links>
+        <Button
+          icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
+          type="link"
+          onClick={onNote}
+        >
+          Notes
+        </Button>
+
         <Button
           icon={<FontAwesomeIcon icon={faPlus} color="#0455c5" />}
           type="link"
+          onClick={onCreateNote}
         >
-          <Link to="../createNote">Create Note</Link>
+          Create Note
         </Button>
         <Select
           placeholder="Sort by"
           value={sort}
           onChange={(selectedSortBy) => setSort(selectedSortBy)}
           options={[
-            { value: "tile", label: "Title" },
+            { value: "title", label: "Title" },
             { value: "text", label: "Text" },
             { value: "dateToCreate", label: "Date" },
           ]}

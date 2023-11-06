@@ -5,7 +5,7 @@ const Styled = {
     border: 1px solid none;
     border-radius: 13px;
     width: 239px;
-    height: auto;
+    height: 300px;
     margin-top: 13px;
     margin-left: 13px;
     font-size: 14px;
@@ -42,7 +42,8 @@ const Styled = {
     padding: 10px;
     font-family: "calibri";
     padding-left: 15px;
-    padding-top: 4px;
+    padding-top: 10px;
+    height: auto;
   `,
 
   Date: styled.div`

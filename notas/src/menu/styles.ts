@@ -12,11 +12,6 @@ const Styled = {
     display: flex;
     flex-direction: row;
     justify-items: flex-end;
-
-    /*:where(.css-dev-only-do-not-override-xu9wm8)[class^="ant-dropdown"],
-    :where(.css-dev-only-do-not-override-xu9wm8)[class*=" ant-dropdown"] {
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
-    }*/
   `,
   Radios: styled.div`
     margin-left: 11px;

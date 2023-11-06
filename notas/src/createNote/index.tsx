@@ -10,7 +10,7 @@ import {
   Space,
   Tooltip,
 } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { faNoteSticky, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,6 +44,12 @@ const CreateNote = () => {
     navigate("/");
     message.success("Created note ");
   };
+  const onNotes = () => {
+    navigate("/");
+  };
+  const onCancelButton = () => {
+    navigate("/");
+  };
 
   return (
     <>
@@ -51,16 +57,18 @@ const CreateNote = () => {
         <Button
           icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
           type="link"
+          onClick={onNotes}
         >
-          <Link to="/">Notes</Link>
+          Notes
         </Button>
 
         <Button
           icon={<FontAwesomeIcon icon={faXmark} color="#ff4d4f" />}
           type="link"
           danger
+          onClick={onCancelButton}
         >
-          <Link to="/">Cancel</Link>
+          Cancel
         </Button>
       </Styled.Buttons>
 
@@ -74,6 +82,8 @@ const CreateNote = () => {
             <Space.Compact>
               <Styled.Input $color={color}>
                 <Input
+                  showCount
+                  maxLength={35}
                   style={{ width: "310px" }}
                   placeholder="Write a title for your note"
                   value={text}

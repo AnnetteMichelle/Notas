@@ -28,14 +28,23 @@ const Styled = {
   Input: styled.div<{ $color: string }>`
     margin-left: 8px;
     margin-right: 8px;
+
     .ant-input {
-      border-color: #bfbebebd;
+      border-color: #42424259;
 
       ${(props) => {
         if (props.$color) {
           return `background-color:${props.$color};`;
         }
       }}
+    }
+
+    :where(.css-dev-only-do-not-override-amq5gd).ant-input-affix-wrapper {
+      background-color: #fff0;
+      border-color: #42424259;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      color: #dcdbdb;
     }
   `,
   Titles: styled.div`
@@ -57,8 +66,11 @@ const Styled = {
   `,
 
   Buttons: styled.div`
-    margin-top: 36px;
-    margin-left: 13px;
+    padding-bottom: 39px;
+    padding: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-end;
   `,
 
   ColorPicker: styled.div`

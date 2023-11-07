@@ -2,9 +2,11 @@ import { useId, useState } from "react";
 
 import { useLocalStorageState } from "ahooks";
 import { Button, ColorPicker, Form, Input, message, Tooltip } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import Menu from "../menu";
+import { faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { noteData } from "../notes/types";
 import Styled from "./styles";
 
@@ -37,7 +39,12 @@ const CreateNote = () => {
 
   return (
     <>
-      <Menu />
+      <Button
+        icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
+        type="link"
+      >
+        <Link to="/">Notes</Link>
+      </Button>
 
       <Styled.CreateNote $color={color}>
         <Styled.TitleNote>Create a new note</Styled.TitleNote>

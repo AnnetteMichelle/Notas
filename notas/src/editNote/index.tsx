@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 
 import { useLocalStorageState } from "ahooks";
 import { Button, ColorPicker, Form, Input, message, Tooltip } from "antd";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
+import { faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Styled from "../createNote/styles";
-import Menu from "../menu";
 import { noteData } from "../notes/types";
 
 const EditNote = () => {
@@ -50,7 +52,12 @@ const EditNote = () => {
 
   return (
     <>
-      <Menu />
+      <Button
+        icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
+        type="link"
+      >
+        <Link to="/">Notes</Link>
+      </Button>
       <Styled.CreateNote $color={color}>
         <Styled.TitleNote>Edit Note</Styled.TitleNote>
 

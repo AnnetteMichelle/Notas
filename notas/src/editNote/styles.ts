@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 const Styled = {
   EditContainer: styled.div`
@@ -39,7 +39,7 @@ const Styled = {
       }}
     }
 
-    :where(.css-dev-only-do-not-override-amq5gd).ant-input-affix-wrapper {
+    .ant-input-affix-wrapper {
       background-color: #fff0;
       border-color: #42424259;
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",

@@ -9,12 +9,15 @@ const Styled = {
     margin-top: 13px;
     margin-left: 13px;
     font-size: 14px;
+    overflow: scroll;
+
     ${(props) => {
       if (props.$color) {
         return `background-color:${props.$color};`;
       }
     }}
   `,
+
   Color: styled.div<{ $color: string }>`
     border-radius: 15px;
     ${(props) => {
@@ -39,15 +42,14 @@ const Styled = {
   `,
 
   Description: styled.div`
-    padding: 10px;
     font-family: "calibri";
     padding-left: 15px;
-    padding-top: 10px;
     height: auto;
+    padding-top: 10px;
   `,
 
   Date: styled.div`
-    padding: 10px;
+    padding-left: 20px;
     font-weight: bolder;
     font-size: 10px;
   `,

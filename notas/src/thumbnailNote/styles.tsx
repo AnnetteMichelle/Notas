@@ -9,13 +9,19 @@ const Styled = {
     margin-top: 13px;
     margin-left: 13px;
     font-size: 14px;
+<<<<<<< Updated upstream
     box-shadow: 2px;
+=======
+    overflow: scroll;
+
+>>>>>>> Stashed changes
     ${(props) => {
       if (props.$color) {
         return `background-color:${props.$color};`;
       }
     }}
   `,
+
   Color: styled.div<{ $color: string }>`
     border-radius: 15px;
     margin-top: 8px;
@@ -45,11 +51,15 @@ const Styled = {
     padding: 10px;
     font-family: "calibri";
     padding-left: 15px;
+<<<<<<< Updated upstream
     padding-top: 4px;
+=======
+    padding-top: 10px;
+>>>>>>> Stashed changes
   `,
 
   Date: styled.div`
-    padding: 10px;
+    padding-left: 20px;
     font-weight: bolder;
     font-size: 10px;
   `,

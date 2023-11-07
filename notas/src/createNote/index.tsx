@@ -1,10 +1,18 @@
 import { useId, useState } from "react";
 
 import { useLocalStorageState } from "ahooks";
-import { Button, ColorPicker, Form, Input, message, Tooltip } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Button,
+  ColorPicker,
+  Form,
+  Input,
+  message,
+  Space,
+  Tooltip,
+} from "antd";
+import { useNavigate } from "react-router-dom";
 
-import { faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { faNoteSticky, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { noteData } from "../notes/types";
@@ -36,73 +44,101 @@ const CreateNote = () => {
     navigate("/");
     message.success("Created note ");
   };
+  const onNotes = () => {
+    navigate("/");
+  };
+  const onCancelButton = () => {
+    navigate("/");
+  };
 
   return (
     <>
-      <Button
-        icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
-        type="link"
-      >
-        <Link to="/">Notes</Link>
-      </Button>
+      <Styled.Buttons>
+        <Button
+          icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
+          type="link"
+          onClick={onNotes}
+        >
+          Notes
+        </Button>
 
-      <Styled.CreateNote $color={color}>
-        <Styled.TitleNote>Create a new note</Styled.TitleNote>
+        <Button
+          icon={<FontAwesomeIcon icon={faXmark} color="#ff4d4f" />}
+          type="link"
+          danger
+          onClick={onCancelButton}
+        >
+          Cancel
+        </Button>
+      </Styled.Buttons>
 
-        <Form.Item>
-          {" "}
-          <Styled.Titles>Title</Styled.Titles>
-          <Styled.Input $color={color}>
-            <Input
-              placeholder="Write a title for your note"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            ></Input>
-          </Styled.Input>
-          <Styled.Titles>Text</Styled.Titles>
-          <Styled.Input $color={color}>
-            <TextArea
-              placeholder="Write a text for your note"
-              autoSize={{ minRows: 2, maxRows: 6 }}
-              value={textArea}
-              onChange={(e) => setTextArea(e.target.value)}
-            />
-          </Styled.Input>
-          <Styled.Titles>Note colors</Styled.Titles>
-          <Tooltip
-            title="select a color for the note"
-            placement="topLeft"
-            color="#967957"
-          >
-            <Styled.ColorPicker>
-              <ColorPicker
-                value={color}
-                onChangeComplete={(color) => {
-                  setColor(color?.toHexString());
-                }}
+      <Styled.CreateContainer>
+        <Styled.CreateNote $color={color}>
+          <Form.Item>
+            <Styled.TitleNote>Create a new note</Styled.TitleNote>
+
+            <Styled.Titles>Title</Styled.Titles>
+
+            <Space.Compact>
+              <Styled.Input $color={color}>
+                <Input
+                  showCount
+                  maxLength={35}
+                  style={{ width: "310px" }}
+                  placeholder="Write a title for your note"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                ></Input>
+              </Styled.Input>
+            </Space.Compact>
+
+            <Styled.Titles>Text</Styled.Titles>
+            <Styled.Input $color={color}>
+              <TextArea
+                rows={4}
+                style={{ width: "310px" }}
+                placeholder="Write a text for your note"
+                autoSize={{ minRows: 2, maxRows: 6 }}
+                value={textArea}
+                onChange={(e) => setTextArea(e.target.value)}
               />
+            </Styled.Input>
+            <Styled.Titles>Note colors</Styled.Titles>
+            <Styled.ColorPicker>
+              <Tooltip
+                title="select a color for the note"
+                placement="topLeft"
+                color="#967957"
+              >
+                <ColorPicker
+                  value={color}
+                  onChangeComplete={(color) => {
+                    setColor(color?.toHexString());
+                  }}
+                />
+              </Tooltip>
             </Styled.ColorPicker>
-          </Tooltip>
-          <Styled.Titles>
-            Date
-            <Styled.Date>
-              {new Date().toLocaleDateString("en-ES", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "numeric",
-                minute: "numeric",
-              })}
-            </Styled.Date>
-          </Styled.Titles>
-          <Styled.button>
-            {" "}
-            <Button type="primary" onClick={OnSaveNote}>
-              Save a note
-            </Button>
-          </Styled.button>
-        </Form.Item>
-      </Styled.CreateNote>
+            <Styled.Titles>
+              Date
+              <Styled.Date>
+                {new Date().toLocaleDateString("en-ES", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })}
+              </Styled.Date>
+            </Styled.Titles>
+            <Styled.button>
+              {" "}
+              <Button type="primary" onClick={OnSaveNote}>
+                Save the note
+              </Button>
+            </Styled.button>
+          </Form.Item>
+        </Styled.CreateNote>
+      </Styled.CreateContainer>
     </>
   );
 };

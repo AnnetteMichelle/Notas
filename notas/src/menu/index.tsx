@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import type { RadioChangeEvent } from "antd";
 import { Button, Radio, Select, Space } from "antd";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   faArrowRight,
@@ -27,64 +27,67 @@ const Menu = ({ onOrderAsc }: MenuProps) => {
       onOrderAsc({ selectedOrder: radioActive, selectedSortBy: sort });
   }, [sort, radioActive]);
 
+  const navigate = useNavigate();
+  const onNote = () => {
+    navigate("/");
+  };
+
+  const onCreateNote = () => {
+    navigate("../createNote");
+  };
+
   return (
     <>
-      <Styled.Links>
+      <Styled.CreateNote>
         <Button
           icon={<FontAwesomeIcon icon={faNoteSticky} color="#5a9efd" />}
           type="link"
+          onClick={onNote}
         >
-          <Link to="/">Notes</Link>
+          Notes
         </Button>
 
-        <Styled.CreateNote>
-          <Button
-            icon={<FontAwesomeIcon icon={faPlus} color="#0455c5" />}
-            type="link"
-          >
-            <Link to="../createNote">Create Note</Link>
-          </Button>
-
-          <Styled.Select>
-            <Space>
-              <Select
-                placeholder="Sort by"
-                value={sort}
-                onChange={(selectedSortBy) => setSort(selectedSortBy)}
-                options={[
-                  { value: "tile", label: "Title" },
-                  { value: "text", label: "Text" },
-                  { value: "dateToCreate", label: "Date" },
-                ]}
+        <Button
+          icon={<FontAwesomeIcon icon={faPlus} color="#0455c5" />}
+          type="link"
+          onClick={onCreateNote}
+        >
+          Create Note
+        </Button>
+        <Select
+          placeholder="Sort by"
+          value={sort}
+          onChange={(selectedSortBy) => setSort(selectedSortBy)}
+          options={[
+            { value: "title", label: "Title" },
+            { value: "text", label: "Text" },
+            { value: "dateToCreate", label: "Date" },
+          ]}
+        />
+        <Styled.Radios>
+          <Radio.Group onChange={onSaveRadioActive} value={radioActive}>
+            <Radio value={"desc"}>
+              A
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                color="#b6b6b6"
+                size={"2xs"}
               />
-            </Space>
+              <Space>Z</Space>
+            </Radio>
 
-            <Styled.Radios>
-              <Radio.Group onChange={onSaveRadioActive} value={radioActive}>
-                <Radio value={"desc"}>
-                  A
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    color="#b6b6b6"
-                    size={"2xs"}
-                  />
-                  <Space>Z</Space>
-                </Radio>
-
-                <Radio value={"asc"}>
-                  Z
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    color="#b6b6b6"
-                    size={"2xs"}
-                  />
-                  <Space>A</Space>
-                </Radio>
-              </Radio.Group>
-            </Styled.Radios>
-          </Styled.Select>
-        </Styled.CreateNote>
-      </Styled.Links>
+            <Radio value={"asc"}>
+              Z
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                color="#b6b6b6"
+                size={"2xs"}
+              />
+              <Space>A</Space>
+            </Radio>
+          </Radio.Group>
+        </Styled.Radios>
+      </Styled.CreateNote>
     </>
   );
 };

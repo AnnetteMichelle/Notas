@@ -1,15 +1,20 @@
 import { styled } from "styled-components";
 
 const Styled = {
-  CreateNote: styled.div<{ $color: string }>`
-    border: 1px solid #e4e0e0;
-    margin-left: 742px;
-    margin-top: 115px;
-    width: 22%;
-    border-radius: 20px;
-    height: auto;
-    margin-top: 34px;
+  CreateContainer: styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
 
+  CreateNote: styled.div<{ $color: string }>`
+    margin-top: 50px;
+    min-width: 22%;
+    height: auto;
+    border: 1px solid #e4e4e4;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
     ${(props) => {
       if (props.$color) {
         return `background-color:${props.$color};`;
@@ -17,16 +22,13 @@ const Styled = {
     }}
   `,
   TitleNote: styled.div`
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-      sans-serif;
-    font-size: 20px;
+    margin-top: 20px;
     text-align: center;
-    margin-top: 23px;
     font-weight: bold;
   `,
   Input: styled.div<{ $color: string }>`
-    margin-left: 113px;
-
+    margin-left: 8px;
+    margin-right: 8px;
     .ant-input {
       width: auto;
       border-color: #d3d3d3;
@@ -37,33 +39,42 @@ const Styled = {
         }
       }}
     }
-    /*.ant-input:hover {
-      ${(props) => {
-      if (props.$color) {
-        return `border-color:${props.$color};`;
-      }
-    }}
-    }*/
+
+    .ant-input-suffix {
+      margin-inline-start: 71px;
+      color: #ececec;
+    }
   `,
   Titles: styled.div`
-    margin-left: 113px;
-    margin-top: 19px;
-    padding-bottom: 4px;
+    margin-left: 8px;
     font-weight: 600;
-  `,
-
-  ColorPicker: styled.div`
-    margin-left: 113px;
+    color: #484848;
+    margin-top: 4px;
+    margin-bottom: 4px;
   `,
 
   button: styled.div`
-    margin-top: 36px;
+    margin-top: 15px;
     text-align: center;
   `,
 
   Date: styled.div`
     font-weight: 600;
-    color: #aaa9a9;
+    color: #c3c3c3;
+  `,
+
+  Buttons: styled.div`
+    //margin-top: 36px;
+    //margin-left: 13px;
+    padding-bottom: 39px;
+    padding: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-end;
+  `,
+
+  ColorPicker: styled.div`
+    margin-left: 8px;
   `,
 };
 export default Styled;
